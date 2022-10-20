@@ -25,7 +25,7 @@
             @if (Route::has('login'))
                 <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
                     @auth
-                        <a href="{{ url('/home') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Home</a>
+                        <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Dashboard</a>
                     @else
                         <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
 
@@ -45,9 +45,15 @@
                     </svg>
                 </div>
 
+                
+
                 @if(Spatie\Multitenancy\Models\Tenant::checkCurrent())
                     <h1 class="text-white">{{ app('currentTenant')->name }}</h1>
                 @endif 
+                <p><i>Try with this subdomain...</i></p>
+                <h2><a href="admin.localhost:8000">admin.localhost</a></h2>
+                <h2><a href="shop.localhost:8000">shop.localhost</a></h2>                
+                <h2><a href="localhost:8000">Main Domain</a></h2>
 
                 <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
                     <div class="grid grid-cols-1 md:grid-cols-2">
