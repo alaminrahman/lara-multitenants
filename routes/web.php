@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\Tenant\ShopController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,6 +17,13 @@ Route::domain('localhost')->group(function(){
     Route::get('/', function () {
         return view('welcome');
     });
+
+    Route::controller(ShopController::class)->group(function(){
+        Route::group(['prefix' => 'shop', 'as' => 'shops.'], function(){
+            Route::get('/register', 'register')->name('register');
+            Route::post('/store', 'store')->name('store');
+        });
+    });
     
 });
 
@@ -25,6 +32,7 @@ Route::domain('{tenant}.localhost')->middleware('tenant')->group(function(){
     Route::get('/', function ($tenant) {
         return view('welcome');
     });
+
     
 });
 
