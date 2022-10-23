@@ -14,7 +14,7 @@
                
                 <div class="card">
                     <div class="card-header">
-                        <h3>Shop Register</h3>
+                        <h3> User Register</h3>
 
                         @if ($errors->any())
                             <div class="alert alert-danger">
@@ -25,25 +25,34 @@
                                 </ul>
                             </div>
                         @endif
-                        
                     </div>
                     <div class="card-body">
-                        <form action="{{ route('shops.store') }}" method="POST">
+                        <form action="{{ url('http://'.$tenant.'.localhost:8000/users/store') }}" method="POST">
                             @csrf 
 
+                            <input type="text" name="domain" value="{{ $tenant }}">
                             <div class="mb-3">
-                                <label for="shop_name" class="form-label">Shop Name</label>
-                                <input type="text" class="form-control" name="shop_name" placeholder="Enter Shop name">
+                                <label for="name" class="form-label"> Name</label>
+                                <input type="text" class="form-control" name="name" placeholder="Name">
                             </div>
 
                             <div class="mb-3">
-                                <label for="domain" class="form-label">Sub Domain</label>
-                                <input type="text" class="form-control" name="domain" placeholder="Subdomain Prefix">
-                                <small class="text-danger">Just enter "test" it will be access "test.localhost:8000"</small>
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" class="form-control" name="email" placeholder="Email">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Password</label>
+                                <input type="password" class="form-control" name="password" placeholder="Password">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Confirm Password</label>
+                                <input type="password" class="form-control" name="password_confirmation" placeholder="Confirm">
                             </div>
 
                             <div class="d-grid">
-                                <button type="submit" class="btn btn-outline-primary">Next</button>
+                                <button type="submit" class="btn btn-outline-primary">Submit</button>
 
                             </div>
                             

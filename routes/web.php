@@ -22,6 +22,7 @@ Route::domain('localhost')->group(function(){
         Route::group(['prefix' => 'shop', 'as' => 'shops.'], function(){
             Route::get('/register', 'register')->name('register');
             Route::post('/store', 'store')->name('store');
+            
         });
     });
     
@@ -31,6 +32,12 @@ Route::domain('localhost')->group(function(){
 Route::domain('{tenant}.localhost')->middleware('tenant')->group(function(){
     Route::get('/', function ($tenant) {
         return view('welcome');
+    });
+    Route::controller(ShopController::class)->group(function(){
+        Route::group(['prefix' => 'users', 'as' => 'users.'], function(){
+            Route::get('/form', 'user_form')->name('form');
+            Route::post('/store', 'user_store')->name('store');
+        });
     });
 
     
