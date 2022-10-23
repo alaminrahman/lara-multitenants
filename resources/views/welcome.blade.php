@@ -45,18 +45,6 @@
                     <a href="{{ route('shops.register') }}" style="font-size: 50px;" class="text-sm text-emerald-700 dark:text-gray-500 underline"><b>Shop Register</b></a>
                 @endif 
 
-                <p><i>Try with this subdomain...</i></p>
-                <h2>
-                    <a href="admin.localhost:8000" class="text-sm text-gray-700 dark:text-gray-500 underline"><b>admin.localhost</b></a>
-                </h2>
-                <h2>
-                    <a href="shop.localhost:8000" class="text-sm text-gray-700 dark:text-gray-500 underline"><b>shop.localhost</b></a>
-                </h2>                
-
-                <h2>
-                    <a href="localhost:8000" class="text-sm text-gray-700 dark:text-gray-500 underline"><b>Main Domain</b></a>
-                </h2>
-
             
             </div>
         </div>
